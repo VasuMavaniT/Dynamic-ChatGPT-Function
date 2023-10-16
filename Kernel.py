@@ -126,16 +126,16 @@ async def make_kernel():
     '''
     kernel = sk.Kernel()
 
-    # endpoint = "https://thirdray-openai-demo-instance-us-east.openai.azure.com"
-    # api_key = "917bf6ea50214df7a19a1bf1572aab3d"
-    # deployment = 'gpt-4'
+    api_key = os.getenv("AZURE_OPENAI_KEY")
+    deployment = 'gpt-4'
+    endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 
-    # kernel.add_text_completion_service("azureopenaicompletion", AzureChatCompletion(deployment, endpoint, api_key))
+    kernel.add_text_completion_service("azureopenaicompletion", AzureChatCompletion(deployment, endpoint, api_key))
     # kernel.add_text_embedding_generation_service("ada", AzureTextEmbedding("text-embedding-ada-002", endpoint, api_key))
 
-    org_id = "org-pA0mtQskmdBICryQ2byOXoWG"
-    api_key = "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"
-    kernel.add_text_completion_service("openai", OpenAIChatCompletion("gpt-3.5-turbo-0301", api_key, org_id))
+    # org_id = "org-pA0mtQskmdBICryQ2byOXoWG"
+    # api_key = "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"
+    # kernel.add_text_completion_service("openai", OpenAIChatCompletion("gpt-3.5-turbo-0301", api_key, org_id))
 
     print("Kernel is ready")
 
