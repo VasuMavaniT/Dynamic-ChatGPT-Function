@@ -133,10 +133,6 @@ async def make_kernel():
     kernel.add_text_completion_service("azureopenaicompletion", AzureChatCompletion(deployment, endpoint, api_key))
     # kernel.add_text_embedding_generation_service("ada", AzureTextEmbedding("text-embedding-ada-002", endpoint, api_key))
 
-    # org_id = "org-pA0mtQskmdBICryQ2byOXoWG"
-    # api_key = "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"
-    # kernel.add_text_completion_service("openai", OpenAIChatCompletion("gpt-3.5-turbo-0301", api_key, org_id))
-
     print("Kernel is ready")
 
     return kernel
